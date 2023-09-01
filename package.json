@@ -1,0 +1,34 @@
+{
+  "name": "@antkwok/html-docker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A template for creating html-docker apps.",
+  "keywords": [
+    "html-docker",
+    "antkwok",
+    "caz",
+    "zce"
+  ],
+  "repository": "antkwok/html-docker",
+  "license": "MIT",
+  "author": "Anthony Kwok <anthony.kwok@singtaonewscorp.com> (https://github.com/antkwok)",
+  "scripts": {
+    "test": "node index.test.js"
+  },
+  "renovate": {
+    "extends": [
+      "zce"
+    ],
+    "ignorePaths": [
+      "template"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "st-html-docker"
+    ]
+  },
+  "devDependencies": {
+    "caz": "^2.0.0"
+  }
+}
