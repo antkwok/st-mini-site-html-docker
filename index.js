@@ -22,7 +22,8 @@ module.exports = {
     {
       name: 'version',
       type: 'text',
-      message: 'Project version'
+      message: 'Project version',
+      initial: 'v1.0.0'
     },
     {
       name: 'description',
@@ -40,45 +41,56 @@ module.exports = {
       type: 'text',
       message: 'Project author email'
     },
+    // {
+    //   name: 'url',
+    //   type: 'text',
+    //   message: 'Project author url'
+    // },
     {
-      name: 'url',
+      name: 'namespace',
       type: 'text',
-      message: 'Project author url'
+      message: 'aliyun container register namespace',
+      initial: 'eastweek-minisites'
     },
     {
-      name: 'github',
+      name: 'container_name',
       type: 'text',
-      message: 'GitHub username or organization',
-      initial: 'zce'
+      message: 'aliyun container register container name'
     },
     {
-      name: 'features',
-      type: 'multiselect',
-      message: 'Choose the features you need',
-      instructions: false,
-      choices: [
-        // TODO: custom template features
-        { title: 'Automatic test', value: 'test', selected: true },
-        { title: 'Foo', value: 'foo' }
-      ]
+      name: 'port',
+      type: 'text',
+      message: 'port',
+      initial: '8001'
     },
-    {
-      name: 'install',
-      type: 'confirm',
-      message: 'Install dependencies',
-      initial: true
-    },
-    {
-      name: 'pm',
-      type: prev => process.env.NODE_ENV === 'test' || prev ? 'select' : null,
-      message: 'Package manager',
-      hint: ' ',
-      choices: [
-        { title: 'npm', value: 'npm' },
-        { title: 'pnpm', value: 'pnpm' },
-        { title: 'yarn', value: 'yarn' }
-      ]
-    }
+    // {
+    //   name: 'features',
+    //   type: 'multiselect',
+    //   message: 'Choose the features you need',
+    //   instructions: false,
+    //   choices: [
+    //     // TODO: custom template features
+    //     { title: 'Automatic test', value: 'test', selected: true },
+    //     { title: 'Foo', value: 'foo' }
+    //   ]
+    // },
+    // {
+    //   name: 'install',
+    //   type: 'confirm',
+    //   message: 'Install dependencies',
+    //   initial: true
+    // },
+    // {
+    //   name: 'pm',
+    //   type: prev => process.env.NODE_ENV === 'test' || prev ? 'select' : null,
+    //   message: 'Package manager',
+    //   hint: ' ',
+    //   choices: [
+    //     { title: 'npm', value: 'npm' },
+    //     { title: 'pnpm', value: 'pnpm' },
+    //     { title: 'yarn', value: 'yarn' }
+    //   ]
+    // }
   ],
   complete: async ctx => {
     // TODO: custom complete callback
@@ -88,10 +100,11 @@ module.exports = {
     if (ctx.dest !== process.cwd()) {
       console.log(`  $ cd ${path.relative(process.cwd(), ctx.dest)}`)
     }
-    if (ctx.config.install === false) {
-      console.log(`  $ npm install`)
-    }
-    console.log(`  $ ${ctx.config.install ? ctx.config.install : 'npm'} test`)
-    console.log('\nHappy hacking :)\n')
+    console.log(`  $ cp .env.developer.example .env.developer`)
+    console.log(`  $ mkdir -p public/sup`)
+    console.log(`\n  then place vendor's html code in it`)
+
+    // console.log(`  $ ${ctx.config.install ? ctx.config.install : 'npm'} test`)
+    console.log('\nBy Anthony Kwok :)\n')
   }
 }

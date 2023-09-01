@@ -1,12 +1,24 @@
 # <%= name %>
 
-> <%= description %>
+## For Docker Development Environment
+```bash
+# cp the example .env, and change the content inside the .env files.
+cp .env.example .env
 
-- version: <%= version %>
-- author: <%= author %>
-- email: <%= email %>
-- url: <%= url %>
-- github: <%= github %>
-- features: <%= features %>
-- year: <%= year %>
-- upper: <%= _.toUpper(name) %>
+# for build and recreate
+docker-compose up --build --force-recreate --no-deps -d
+
+# for down, it will destroy all container, but the volume still exist
+docker-compose down
+```
+
+
+## For Ops daily operations
+```bash
+
+# for start
+docker-compose up -d
+
+# for down, it will destroy all container, but the volume still exist
+docker-compose down
+```

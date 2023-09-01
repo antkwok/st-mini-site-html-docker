@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  <%= container_name %>:
+    image: "<%= container_name %>:1.0"
+    restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www

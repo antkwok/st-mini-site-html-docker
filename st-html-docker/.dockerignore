@@ -1,0 +1,6 @@
+.git
+#custom php official image only, no source code
+supervisord.log
+supervisord.pid
+docs
+opsTeam
